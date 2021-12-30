@@ -98,3 +98,7 @@ msg.payload = text240+'\n\nSource -> '+msg.guid;
 return msg;
 ```
 ^- *replacing some common HTML entities with 'escaped' versions...*
+
+#### Example v01
+
+![](https://github.com/jonathancraddock/Notes-on-NodeRED/blob/master/twitter/img/toot-flow-tweet-v01.png)
