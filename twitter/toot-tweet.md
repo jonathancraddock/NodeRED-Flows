@@ -16,3 +16,14 @@ An API key is required.
 Mastodon is an ethical, community-based social media platform. For this purpose, the RSS feed provides sufficiant info and is freely available.
 
 ![](https://github.com/jonathancraddock/Notes-on-NodeRED/blob/master/twitter/img/lastitem.png)
+
+* GUID (permalink to Mastodon toot)
+* Payload (body of Twitter status)
+* Media (image attachment)
+
+![](https://github.com/jonathancraddock/Notes-on-NodeRED/blob/master/twitter/img/lastitem-fields.png)
+
+-----
+
+### NodeRED Flow
+
