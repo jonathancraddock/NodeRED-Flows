@@ -9,9 +9,12 @@ Backups of some NodeRED flows and scripts.
 
 Examples above of simple Keybase read/send flows using the CLI only.
 
-### Northumberland Coastal Scraping
+### Contents
 
-* [BlythTide](./blythtide/readme.md)  
+* [BlythTide](./blythtide/readme.md)  *testing*  
+* [Keybase Read Chat](./keybase/read-chat-01.md)  
+* [Keybase Send Chat](./keybase/send-chat-01.md)  
+* [Twitter 'Toot-Tweet'](./twitter/toot-tweet.md)  *in progress*  
 
 # NodeRED with an Apache Reverse Proxy
 
