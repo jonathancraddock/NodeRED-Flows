@@ -30,12 +30,12 @@ Mastodon is an ethical, federated, community-based social media platform. For th
 
 Initial test:
 
-* Read RSS feed and get latest tweet
+* Read RSS feed and get latest toot
 * Is it new?
 * Is there an embedded image?
 * Sanitise the body of the status
 * Tweet it
-* Store the latest GUID - see, 'is it new' above
+* Store the latest GUID - see, 'is it new?' above
 * Repeat at fixed interval
 
 ![](https://github.com/jonathancraddock/Notes-on-NodeRED/blob/master/twitter/img/toot-tweet-01.png)
