@@ -63,7 +63,7 @@ Initial test v01:
 * Store the latest GUID - see, 'is it new?' above
 * Repeat at fixed interval
 
-![](https://github.com/jonathancraddock/Notes-on-NodeRED/blob/master/twitter/img/toot-tweet-01.png)
+![](https://github.com/jonathancraddock/Notes-on-NodeRED/blob/master/twitter/img/toot-tweet-01b.png)
 
 #### Get Latest Toot
 
@@ -80,6 +80,7 @@ msg.guid = msg.lastitem.guid[0]._;
 //if there's an attached image, get the link: msg.lastitem.enclosure[0].$.url
 if ( typeof msg.lastitem.enclosure !== 'undefined') {
   msg.url = msg.lastitem.enclosure[0].$.url;
+  msg.img = 'yes';
 } else {
   msg.url = false;
 }
@@ -108,12 +109,12 @@ let santext = text.replace('<br />','\n').
             replace(/&lt;/g,'\<').
             replace(/&gt;/g,'\>');
 
-//truncate to first 240 chars (if required) leaving space for permalink
+//truncate to first 200 chars (if required) leaving space for permalink
 //trim any trailing spaces (particularly before appending ellipsis, if required)
-let text240 = santext.length > 240 ? santext.substring(0, 240).trim() + '...' : santext.trim();
+let text200 = santext.length > 200 ? santext.substring(0, 200).trim() + '...' : santext.trim();
 
 //append Mastodon permalink to sanitised text
-msg.payload = text240+'\n\nSource -> '+msg.guid;
+msg.payload = text200+'\n\nSource -> '+msg.guid;
 
 //sending to Twitter node:
 // msg.payload = status
