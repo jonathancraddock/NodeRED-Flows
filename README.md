@@ -16,6 +16,52 @@ Examples above of simple Keybase read/send flows using the CLI only.
 * [Keybase Send Chat](./keybase/send-chat-01.md)  
 * [Twitter 'Toot-Tweet'](./twitter/toot-tweet.md)  *in progress*  
 
+## Require a NodeJS Library
+
+If you've installed a library via NPM and want to make use of it in a Node-RED 'function' node, there are a couple of steps:
+
+In `settings.js` modify/add the library. In this example, jsonwebtoken.
+
+```js
+functionGlobalContext: {
+  //osModule:require('os'),
+  jsonwebtoken:require('jsonwebtoken'),
+}
+```
+
+Node-RED will require a restart at this point. Probably:
+```bash
+sudo systemctl restart node-red
+```
+
+In the function node, note that you can't simply use `const jwt = require('jsonwebtoken');`, but you can use `global.get` instead. Following the above example:
+```js
+// Load jsonwebtoken library
+// 
+const jwt = global.get('jsonwebtoken');
+
+// Injected timestamp
+let timeNow = msg.payload;
+
+// Generate the JWT token
+const payload = { 
+    "sub": "What to do.",
+    "name": "Vote for Pedro!!",
+    "iat": timeNow
+};
+const secret = 'trust_NO_1';
+const token = jwt.sign(payload, secret);
+
+// Pass the generated token
+msg.payload = token;
+
+return msg;
+```
+
+This example makes the jsonwebtoken library available within the Node-RED function.
+
+-----
+
 # NodeRED with an Apache Reverse Proxy
 
 > *These notes are from November 2019.*
